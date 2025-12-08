@@ -1,0 +1,9 @@
+Agent context needed: Web search, user profile, default resume list (some resumes catered to general fields e.g. App dev, business analytics, AI/ML engineering, etc.), list of user projects/certificates
+
+Agent with access to web search pulls curated list of job positions user is qualified for
+Parses through job listings on: LinkedIn, Indeed, GitHub (Subject to change/whatever we find works best)
+Creates list of high value & low value positions/positions
+User then confirms if position is high/low value
+If high value, agent updates closes matching default resume to meet job description
+If low value, agent uploads closes matching default resume
+Agentic integration: automatically fills out user data based on provided context to job applications
