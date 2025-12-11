@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Master Profile Schema",
+  "description": "Schema for the user's comprehensive master profile/resume data.",
+  "type": "object",
+  "required": [
+    "personal_info",
+    "education",
+    "work_experience",
+    "projects",
+    "skills"
+  ],
+  "properties": {
+    "personal_info": {
+      "type": "object",
+      "required": ["name", "email", "phone", "linkedin", "github"],
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "linkedin": { "type": "string", "format": "uri" },
+        "github": { "type": "string", "format": "uri" },
+        "portfolio": { "type": "string", "format": "uri" }
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["degree", "major", "institution", "start_date", "end_date"],
+        "properties": {
+          "degree": { "type": "string" },
+          "major": { "type": "string" },
+          "institution": { "type": "string" },
+          "location": { "type": "string" },
+          "start_date": { "type": "string", "format": "date" },
+          "end_date": { "type": "string", "format": "date" },
+          "gpa": { "type": "string" },
+          "honors": { "type": "string" }
+        }
+      }
+    },
+    "work_experience": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "company", "start_date", "description"],
+        "properties": {
+          "title": { "type": "string" },
+          "company": { "type": "string" },
+          "location": { "type": "string" },
+          "start_date": { "type": "string", "format": "date" },
+          "end_date": { "type": "string", "format": "date" },
+          "is_current": { "type": "boolean" },
+          "description": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "technologies": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "start_date", "description"],
+        "properties": {
+          "name": { "type": "string" },
+          "start_date": { "type": "string", "format": "date" },
+          "end_date": { "type": "string", "format": "date" },
+          "is_current": { "type": "boolean" },
+          "description": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "technologies": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "link": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "skills": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_ -]+$": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false,
+      "description": "Categorized skills, e.g., 'Programming Languages', 'Databases'."
+    }
+  }
+}
